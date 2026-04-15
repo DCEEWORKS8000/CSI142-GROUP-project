@@ -1,0 +1,28 @@
+public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    int choice;
+    String name; // Declare this so you can use it in the switch
+
+    do {
+        System.out.println("--- MOTSHELO SAVINGS SYSTEM ---");
+        System.out.println("1. Add member");
+        System.out.println("0. Exit");
+        System.out.print("Choose option: ");
+        
+        choice = in.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.print("Enter name of new member: ");
+                name = in.next(); // Use next() for Strings, not nextInt()
+                break;
+            case 0:
+                System.out.println("Exiting...");
+                break;
+            default:
+                System.out.println("Invalid choice!");
+                break;
+        }
+
+    } while (choice != 0); // The condition goes here!
+}
