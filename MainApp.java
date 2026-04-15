@@ -1,1 +1,45 @@
 package ub.com.csi142.groupproject.app;
+import java.util.Scanner;
+
+public class MainApp {
+    public static void main(String[] args) {
+         Scanner in=new Scanner(System.in);
+         int choice;
+
+         do{
+        
+            System.out.println("\n ********MOTSHELO SAVINGS SYSTEM********\n");
+         System.out.println("1.Add member");
+         System.out.println("2.Remove member");
+         System.out.println("3.Show members");
+         System.out.println("4.Contrubute");
+         System.out.println("5.Check contributions total");
+         System.out.println("0.Exit");
+
+         System.out.print("Choose option:");
+         choice=in.nextInt();
+         in.nextLine();
+         
+         switch (choice) {
+            case 1:System.out.print("Enter name of new member:");
+                 
+                  break;
+            case 2:System.out.print("Enter name of member you want to remove");
+                  break;
+            case 3:System.out.print("");
+                  break;
+            case 4:System.out.print("Enter amount you want contrubute:");
+                   break;
+            case 5:System.out.print("Total contributions:");
+                   break;
+            case 0:System.out.print("Exiting");
+                   break;
+            default:System.out.print("Invalid choice");
+                   break;
+         }
+         }while (choice!=0); {
+            
+         }
+    }
+}
+
