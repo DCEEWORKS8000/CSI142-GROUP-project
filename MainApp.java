@@ -1,9 +1,13 @@
-package ub.com.csi142.groupproject.app;
+import java.lang.reflect.Member;
+import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class MainApp {
     public static void main(String[] args) {
          Scanner in=new Scanner(System.in);
+         ArrayList<Member> members = new ArrayList<>();
+
          int choice;
 
          do{
@@ -21,16 +25,61 @@ public class MainApp {
          in.nextLine();
          
          switch (choice) {
-            case 1:System.out.print("Enter name of new member:");
-                 
+            case 1:System.out.print("Enter name of new member:");          
+                   String newName = in.nextLine();
+                   members.add(new Member(newName));
+                   System.out.println(newName + " added successfully.");
+            
                   break;
             case 2:System.out.print("Enter name of member you want to remove");
+                   System.out.print("Enter name of member you want to remove: ");
+                   String removeName = in.nextLine();
+                   boolean removed = members.removeIf(m -> m.getName().equalsIgnoreCase(removeName));
+                   if (removed) {
+                        System.out.println(removeName + " removed successfully.");
+                 } else {
+                     System.out.println("Member not found.");
+            }
+            
                   break;
-            case 3:System.out.print("");
+            case 3:if (members.isEmpty()) {
+              System.out.println("No members yet.");
+          } else {
+              System.out.println("Members list:");
+              for (Member m : members) {
+                  System.out.println(m);
+              }
+          }
+          
                   break;
-            case 4:System.out.print("Enter amount you want contrubute:");
+            case 4:
+              System.out.print("Enter member name: ");
+              String contribName = in.nextLine();
+               Member found = null;
+              for (Member m : members) {
+              if (m.getName().equalsIgnoreCase(contribName)) {
+               found = m;
+               break;
+    }
+              }
+               if (found != null) {
+               System.out.print("Enter amount you want to contribute: ");
+                 double amount = in.nextDouble();
+               in.nextLine();
+               found.contribute(amount);
+                System.out.println("Contribution added for " + contribName);
+
+              } else {
+                System.out.println("Member not found.");
+             }
+
                    break;
-            case 5:System.out.print("Total contributions:");
+            case 5:double total = 0;
+            for (Member m : members) {
+                total += m.getTotalContribution();
+            }
+            System.out.println("Total contributions: " + total);
+            
                    break;
             case 0:System.out.print("Exiting");
                    break;
@@ -42,4 +91,3 @@ public class MainApp {
          }
     }
 }
-
