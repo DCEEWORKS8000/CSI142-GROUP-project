@@ -1,1 +1,5 @@
-Reportable.java
+package com.ub.csi142.interfaces;
+ 
+ public interface Reportable{
+    void generateReport();
+ }
