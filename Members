@@ -1,1 +1,37 @@
+public class Members {
+
+
+        private String name;
+        private double totalContribution;
+    
+        public Members(String name) {
+            this.name = name;
+            this.totalContribution = 0.0;
+        }
+    
+    
+        public String getName() {
+            return name;
+        }
+    
+        public double getTotalContribution() {
+            return totalContribution;
+        }
+    
+    
+        public void contribute(double amount) {
+            if (amount > 0) {
+                totalContribution += amount;
+            } else {
+                System.out.println("Contribution must be positive.");
+            }
+        }
+           
+        @Override
+        public String toString() {
+            return "Member: " + name + ", Total Contribution: " + totalContribution;
+        }
+    }
+    
+}
 
