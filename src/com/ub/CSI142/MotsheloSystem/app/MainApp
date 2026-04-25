@@ -15,8 +15,6 @@ public class MainApp {
          System.out.println("3.Show members");
          System.out.println("4.Add Contrubute");
          System.out.println("5.Check contributions total");
-         System.out.println("6.Sorting");
-         System.out.println("7.Searching");
          System.out.println("0.Exit");
 
          System.out.print("Choose option:");
@@ -35,10 +33,6 @@ public class MainApp {
                    break;
             case 5:System.out.print("Total contributions:");
                    break;
-            case 6:System.out.println("Sort members by id")
-                  break;
-            case 7::System.out.println("Search members by id")
-                  break;
             case 0:System.out.print("Exiting");
                    break;
             default:System.out.print("Invalid choice");
