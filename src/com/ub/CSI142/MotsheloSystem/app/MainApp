@@ -13,7 +13,7 @@ public class MainApp {
          System.out.println("1.Add member");
          System.out.println("2.Remove member");
          System.out.println("3.Show members");
-         System.out.println("4.Add Contrubute");
+         System.out.println("4.Add Contribution");
          System.out.println("5.Check contributions total");
          System.out.println("0.Exit");
 
@@ -27,7 +27,8 @@ public class MainApp {
                   break;
             case 2:System.out.print("Enter name of member you want to remove");
                   break;
-            case 3:System.out.print("");
+            case 3:System.out.print("======Member List======");
+                   System.out.print(
                   break;
             case 4:System.out.print("Enter amount you want contrubute:");
                    break;
