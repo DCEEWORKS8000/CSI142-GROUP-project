@@ -1,1 +1,9 @@
+package com.MotsheloSystem.model
 
+
+public abstract class Person {
+    protected String name;
+    protected String phoneNumber;
+
+    public abstract void displayInfo();
+}
