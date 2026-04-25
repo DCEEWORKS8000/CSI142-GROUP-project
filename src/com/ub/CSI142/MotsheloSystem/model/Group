@@ -28,7 +28,7 @@ public double getTotalSavings(){
 }
 
 public void displayMembers(){
-  for(member m: members){
+  for(Member m: members){
     System.out.println(m.getName());
   }
 }
