@@ -17,7 +17,7 @@ public class Members extends Person {
         }
     
     
-        public void contribute(double amount) {
+        public void addContribution(double amount) {
             if (amount > 0) {
                 totalContribution += amount;
             } else {
@@ -27,7 +27,7 @@ public class Members extends Person {
            
         @Override
         public String toString() {
-            return "Member: " + name + ,"ID:"+ memberId + ,"Phone number" +phoneNumber+ "Total Contribution: " + totalContribution;
+            return "Member: " + name + ,"\nID:"+ memberId + ,"\nPhone number" +phoneNumber+ "\nTotal Contribution: " + totalContribution;
         }
     }
     
