@@ -1,7 +1,7 @@
 package ub.com.CSI142.MotsheloSystem.app
-  
+import ub.com.CSI142.MotsheloSystem.model.Group
+import ub.com.CSI142.MotsheloSystem.service.MotsheloService
 import java.util.Scanner;
-import ub.com.CSI142.MotsheloSystem.service
 public class MainApp {
     public static void main(String[] args) {
          Scanner in=new Scanner(System.in);
