@@ -5,7 +5,7 @@ import java.util.List;
 public class Motshelo group {
   private String groupName;
   private List<Member>members;
-  private double totalSavings;
+  private double totalContributions;
 
 public MotsheloGroup(String groupName){
   this.groupName=groupName;
@@ -23,7 +23,7 @@ public void addContributions(double amount){
   totalSavings += amount;
   }
 
-public double getTotalSavings(){
+public double getTotalContributions(){
     return totalSavings;  
 }
 
