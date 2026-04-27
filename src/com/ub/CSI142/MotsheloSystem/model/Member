@@ -1,19 +1,17 @@
 public class Members extends Person {
 
 
-        private String name;
+        private int memberId
         private double totalContribution;
     
-        public Members(String name) {
-            this.name = name;
-            this.totalContribution = 0.0;
-        }
+        public Member(int memberId,String name,String phoneNumber){
+                     super(name,phoneNumber);
+                     this.memberId=memberId;
+                     this.totalContributions=0;
     
-    
-        public String getName() {
-            return name;
-        }
-    
+       public int getMemberId(){
+          return memberId;
+
         public double getTotalContribution() {
             return totalContribution;
         }
@@ -29,7 +27,7 @@ public class Members extends Person {
            
         @Override
         public String toString() {
-            return "Member: " + name + ", Total Contribution: " + totalContribution;
+            return "Member: " + name + ,"ID:"+ memberId + ,"Phone number" +phoneNumber+ "Total Contribution: " + totalContribution;
         }
     }
     
