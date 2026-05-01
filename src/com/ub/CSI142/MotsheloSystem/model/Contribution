@@ -1,4 +1,4 @@
-package com.ub.CSI142.MotsheloSystem.model;
+package com.ub.csi142.motshelosystem.model;
 
 import java.time.LocalDate;
 
@@ -10,7 +10,7 @@ public class Contribution {
     public Contribution(Member member, double amount) {
         this.member = member;
         this.amount = amount;
-        this.date = LocalDate.now();
+        this.date = LocalDate.now(); // Automatically sets the date to today
     }
 
     public Member getMember() {
@@ -28,4 +28,4 @@ public class Contribution {
     public void displayContribution() {
         System.out.println("Member: " + member.getName() + "  Amount: P" + amount + "  Date: " + date);
     }
-}
+  }
