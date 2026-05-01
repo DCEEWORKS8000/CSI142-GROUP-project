@@ -24,7 +24,7 @@ public void addContributions(double amount){
   }
 
 public double getTotalContributions(){
-    return totalSavings;  
+    return totalContributions;  
 }
 
 public void displayMembers(){
