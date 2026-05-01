@@ -1,4 +1,4 @@
-package com.MotsheloSystem.model
+package src.com.ub.MotsheloSystem.model
 
 
 public abstract class Person {
