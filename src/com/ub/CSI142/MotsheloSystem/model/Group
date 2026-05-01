@@ -1,38 +1,42 @@
 package com.ub.CSI142.MotsheloSystem.model;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MotsheloGroup {
-  private String groupName;
-  private List<Member>members;
-  private double totalContributions;
+    private String groupName;
+    private List<Member> members;
+    private double totalContributions;
 
-public MotsheloGroup(String groupName){
-  this.groupName=groupName;
-  this.members=new ArrayList<>();
-  this.totalContributions=0.0;
+    public MotsheloGroup(String groupName) {
+        this.groupName = groupName;
+        this.members = new ArrayList<>();
+        this.totalContributions = 0.0;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void addMember(Member member) {
+        members.add(member);
+    }
+
+    public void removeMember(Member member) {
+        members.remove(member);
+    }
+
+    public void addContribution(double amount) {
+        totalContributions += amount;
+    }
+
+    public double getTotalContributions() {
+        return totalContributions;
+    }
+
+    public void displayMembers() {
+        for (Member m : members) {
+            System.out.println(m.getName());
+        }
+    }
 }
-public void addMember(Member member){
-  members.add(member);
-}
-public void removeMember(Member member) {
-    members.remove(member);
-}
-
-public void addContribution(double amount){
-  totalContributions += amount;
-  }
-
-public double getTotalContributions(){
-    return totalContributions;  
-}
-
-public void displayMembers(){
-  for(Member m: members){
-    System.out.println(m.getName());
-  }
-}
-
-}
-
-
