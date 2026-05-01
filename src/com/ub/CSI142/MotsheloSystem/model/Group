@@ -22,9 +22,15 @@ public class MotsheloGroup {
         members.add(member);
     }
 
-    public void removeMember(Member member) {
-        members.remove(member);
+   public void removeMemberById(int id) {
+    for (Member m : members) {
+        if (m.getMemberId() == id) {
+            members.remove(m);
+            break;
+        }
     }
+} 
+    
 
     public void addContribution(double amount) {
         totalContributions += amount;
