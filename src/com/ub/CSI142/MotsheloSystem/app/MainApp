@@ -1,73 +1,73 @@
-package com.ub.CSI142.MotsheloSystem.app
-import ub.com.CSI142.MotsheloSystem.model.Group
-import ub.com.CSI142.MotsheloSystem.service.MotsheloService
+package com.ub.CSI142.MotsheloSystem.app;
+
+import com.ub.CSI142.MotsheloSystem.model.Member;
+import com.ub.CSI142.MotsheloSystem.service.MotsheloService;
+
 import java.util.Scanner;
+
 public class MainApp {
     public static void main(String[] args) {
-         Scanner in=new Scanner(System.in);
-         int choice;
+        Scanner in = new Scanner(System.in);
+        MotsheloService service = new MotsheloService();
+        int choice;
+        int nextId = 1;
 
-         do{
-        
-         System.out.println("\n ********MOTSHELO SAVINGS SYSTEM********\n");
-         System.out.println("1.Add member");
-         System.out.println("2.Remove member");
-         System.out.println("3.Show members");
-         System.out.println("4.Add Contribution");
-         System.out.println("5.Check contributions total");
-         System.out.print("6.Search member");
-         System.out.print("7.Sort members");
-         System.out.println("0.Exit");
+        do {
+            System.out.println("\n ********MOTSHELO SAVINGS SYSTEM********\n");
+            System.out.println("1. Add member");
+            System.out.println("2. Remove member");
+            System.out.println("3. Show members");
+            System.out.println("4. Add Contribution");
+            System.out.println("5. Check contributions total");
+            System.out.println("6. Search member");
+            System.out.println("7. Sort members");
+            System.out.println("0. Exit");
+            System.out.print("Choose option: ");
+            choice = in.nextInt();
+            in.nextLine();
 
-         System.out.print("Choose option:");
-         choice=in.nextInt();
-         in.nextLine();
-         
-         switch (choice) {
-          case 1:System.out.print("Enter name:");
-                  String name=in.nextLine();
-
-                  System.out.print("Enter phone number:");
-                  String phone=in.nextLine();
-
-                  system.addMember(name,phoneNumber);
-                  break;
-           case 2:System.out.print("Enter member ID to remove");
-
-                  int removeId=in.nextInt();
-
-                  system.removeMember(removeId);
-                  break;
-            case 3:system.displayMembers();
-                   break;
-            case 4:System.out.println("Enter member ID:");
-                   int id=in.nextLine();
-
-                   System.out.println("Enter contribution amount:");
-                   double amount=in.nextDouble();
-
-                   system.addContribution(id,amount);
-                   break;
-            case 5:System.out.print("Total Contributions:P"+system.getTotalContributions());
-                   break;
-            case 6:System.out.println("Enter member ID to search");
-                   int searchId=in.nextInt();
-
-                   system.searchMember(searchId);
-                   break;
-            case 7:system.sortMembers();
-
-                   System.out.print("Members sorted successfully");
-                   break;
-            case 0:
-                   System.out.print("Exiting Thank you");
-                   break;
-            default:
-                   System.out.print("Invalid choice");
-                   break;
-         }
-         }while (choice!=0); {
-            
-         }
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter name: ");
+                    String name = in.nextLine();
+                    System.out.print("Enter phone number: ");
+                    String phone = in.nextLine();
+                    service.addMember(new Member(nextId++, name, phone));
+                    break;
+                case 2:
+                    System.out.print("Enter member ID to remove: ");
+                    int removeId = in.nextInt();
+                    service.removeMember(removeId);
+                    break;
+                case 3:
+                    service.displayMembers();
+                    break;
+                case 4:
+                    System.out.print("Enter member ID: ");
+                    int id = in.nextInt();
+                    System.out.print("Enter contribution amount: ");
+                    double amount = in.nextDouble();
+                    service.addContribution(id, amount);
+                    break;
+                case 5:
+                    System.out.println("Total Contributions: P" + service.getTotalContributions());
+                    break;
+                case 6:
+                    System.out.print("Enter member ID to search: ");
+                    int searchId = in.nextInt();
+                    service.searchMember(searchId);
+                    break;
+                case 7:
+                    service.sortMembers();
+                    System.out.println("Members sorted successfully.");
+                    break;
+                case 0:
+                    System.out.println("Exiting. Thank you!");
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+                    break;
+            }
+        } while (choice != 0);
     }
 }
