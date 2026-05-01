@@ -40,24 +40,6 @@ Sort members by their ID
 Generate a report of all members and their total contributions
 Display the total savings pool
 
-
-com.ub.csi142.motshelosystem
-│
-├─ app
-│ └─ MainApp.java // Entry point of the application
-│
-├─ interfaces
-│ └─ Reportable.java // Interface for generating reports
-│
-├─ model
-│ ├─ Person.java // Abstract class for shared member attributes
-│ ├─ Member.java // Concrete class for members
-│ ├─ Group.java //Class representing a group of members
-│ └─ Contribution.java // Class representing individual contributions
-│
-└─ services
-└─ MotsheloService.java # Service managing members and contributions
-
 GROUP MEMBERS
 OBEDIENCE AMOLEMO NJARA 202206353
 KGOSI MOKGWEETSI 202202681
