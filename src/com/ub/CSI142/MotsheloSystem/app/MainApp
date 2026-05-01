@@ -1,4 +1,4 @@
-package ub.com.CSI142.MotsheloSystem.app
+package src.com.ub.CSI142.MotsheloSystem.app
 import ub.com.CSI142.MotsheloSystem.model.Group
 import ub.com.CSI142.MotsheloSystem.service.MotsheloService
 import java.util.Scanner;
