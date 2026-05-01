@@ -23,13 +23,15 @@ public class MotsheloGroup {
     }
 
    public void removeMemberById(int id) {
-    for (Member m : members) {
-        if (m.getMemberId() == id) {
-            members.remove(m);
-            break;
+    for (int i = 0; i < members.size(); i++) {
+        if (members.get(i).getMemberId() == id) {
+            members.remove(i);
+            System.out.println("Member removed.");
+            return;
         }
     }
-} 
+    System.out.println("Member not found.");
+}
     
 
     public void addContribution(double amount) {
@@ -39,6 +41,16 @@ public class MotsheloGroup {
     public double getTotalContributions() {
         return totalContributions;
     }
+private List<Contribution> contributions = new ArrayList<>();
+
+public void addContribution(Member member, double amount) {
+    Contribution c = new Contribution(member, amount); 
+    contributions.add(c); 
+
+    member.addContribution(amount); 
+    totalContributions += amount;   
+}
+
 
     public void displayMembers() {
         for (Member m : members) {
