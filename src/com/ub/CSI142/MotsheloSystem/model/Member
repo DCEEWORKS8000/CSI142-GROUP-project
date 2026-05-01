@@ -1,38 +1,39 @@
 package com.ub.CSI142.MotsheloSystem.model;
-import java.util.Arraylist;
-import java.util.List;
 
-public class Members extends Person {
+public class Member extends Person {
 
+    private int memberId;
+    private double totalContribution;
 
-        private int memberId
-        private double totalContribution;
-    
-        public Member(int memberId,String name,String phoneNumber){
-                     super(name,phoneNumber);
-                     this.memberId=memberId;
-                     this.totalContributions=0;
-    
-       public int getMemberId(){
-          return memberId;
+    public Member(int memberId, String name, String phoneNumber) {
+        super(name, phoneNumber);
+        this.memberId = memberId;
+        this.totalContribution = 0;
+    }
 
-        public double getTotalContribution() {
-            return totalContribution;
-        }
-    
-    
-        public void addContribution(double amount) {
-            if (amount > 0) {
-                totalContribution += amount;
-            } else {
-                System.out.println("Contribution must be positive.");
-            }
-        }
-           
-        @Override
-        public String toString() {
-            return "Member: " + name + ,"\nID:"+ memberId + ,"\nPhone number" +phoneNumber+ "\nTotal Contribution: " + totalContribution;
+    public int getMemberId() {
+        return memberId;
+    }
+
+    public double getTotalContribution() {
+        return totalContribution;
+    }
+
+    public void addContribution(double amount) {
+        if (amount > 0) {
+            totalContribution += amount;
+        } else {
+            System.out.println("Contribution must be positive.");
         }
     }
-    
+
+    @Override
+    public void displayInfo() {
+        System.out.println(toString());
+    }
+
+    @Override
+    public String toString() {
+        return "Member: " + name + "\nID: " + memberId + "\nPhone number: " + phoneNumber + "\nTotal Contribution: " + totalContribution;
+    }
 }
