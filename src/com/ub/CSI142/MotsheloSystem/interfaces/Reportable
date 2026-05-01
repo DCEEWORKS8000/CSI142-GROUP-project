@@ -1,4 +1,4 @@
-package com.ub.csi142.interfaces;
+package src.com.ub.csi142.interfaces;
  
  public interface Reportable{
     void generateReport();
