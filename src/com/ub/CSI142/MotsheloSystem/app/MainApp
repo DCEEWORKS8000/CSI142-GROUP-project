@@ -48,7 +48,7 @@ public class MainApp {
 
                    system.addContribution(id,amount);
                    break;
-            case 5:System.out.print("Total Contributions:P");system.getTotalContributions();
+            case 5:System.out.print("Total Contributions:P"+system.getTotalContributions());
                    break;
             case 6:System.out.println("Enter member ID to search");
                    int searchId=in.nextInt();
