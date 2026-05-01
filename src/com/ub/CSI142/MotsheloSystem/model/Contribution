@@ -1,6 +1,6 @@
 package com.ub.CSI142.MotsheloSystem.model;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.time.LocalDate;
 
 public class Contribution {
     private Member member;
@@ -10,7 +10,7 @@ public class Contribution {
     public Contribution(Member member, double amount) {
         this.member = member;
         this.amount = amount;
-        this.date = LocalDate.now(); // Automatically sets the date to today
+        this.date = LocalDate.now();
     }
 
     public Member getMember() {
@@ -28,4 +28,4 @@ public class Contribution {
     public void displayContribution() {
         System.out.println("Member: " + member.getName() + "  Amount: P" + amount + "  Date: " + date);
     }
-  }
+}
