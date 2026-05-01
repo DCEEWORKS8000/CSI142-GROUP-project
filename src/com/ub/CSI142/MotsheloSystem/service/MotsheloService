@@ -1,69 +1,85 @@
-package com.ub.CSI142.MotsheloSystem.service;
+package com.ub.csi142.motshelosystem.services;
 
-import com.ub.CSI142.MotsheloSystem.model.Member;
-import com.ub.CSI142.MotsheloSystem.model.Contribution;
-import com.ub.CSI142.MotsheloSystem.interfaces.Reportable;
+import com.ub.csi142.motshelosystem.model.Member;
+import com.ub.csi142.motshelosystem.model.Contribution;
+import com.ub.csi142.motshelosystem.interfaces.Reportable;
 
+import java.util.List;
 import java.util.ArrayList;
 
 public class MotsheloService implements Reportable {
-    private ArrayList<Member> members;
-    private ArrayList<Contribution> contributions;
 
-    public MotsheloService() {
+    private List<Member> members;
+    private List<Contribution> contributions;
+
+    public MotsheloService(){
         members = new ArrayList<>();
         contributions = new ArrayList<>();
     }
-
     public void addMember(Member member) {
         members.add(member);
         System.out.println("Member added: " + member.getName());
     }
 
     public void removeMember(int memberId) {
-        members.removeIf(m -> m.getMemberId() == memberId);
+        int index = binarySearchById(memberId);
+        if (index != -1) {
+            Member removed = members.remove(index);
+            System.out.println("Member removed: " + removed.getName());
+        } else {
+            System.out.println("Member not found with ID: " + memberId);
+        }
     }
-
     public void displayMembers() {
+        if (members.isEmpty()) {
+            System.out.println("No members to display.");
+            return;
+        }
+        System.out.println("\n--- Members List ---");
         for (Member m : members) {
             m.displayInfo();
         }
     }
 
-    public void insertionSortById() {
-        Member[] arr = members.toArray(new Member[0]);
-        for (int i = 1; i < arr.length; i++) {
-            Member key = arr[i];
+    public void sortMembers() {
+        for (int i = 1; i < members.size(); i++) {
+            Member key = members.get(i);
             int j = i - 1;
-            while (j >= 0 && arr[j].getMemberId() > key.getMemberId()) {
-                arr[j + 1] = arr[j];
+            while (j >= 0 && members.get(j).getMemberId() > key.getMemberId()) {
+                members.set(j + 1, members.get(j));
                 j--;
             }
-            arr[j + 1] = key;
-        }
-        members = new ArrayList<>();
-        for (Member m : arr) members.add(m);
-    }
+            members.set(j + 1, key);
+                }
+            }
+             public int binarySearchById(int memberId) {
+             int low = 0;
+             int high = members.size() - 1;
 
-    public void sortMembers() {
-        insertionSortById();
-    }
-
-    public int binarySearchById(int targetId) {
-        Member[] arr = members.toArray(new Member[0]);
-        int low = 0;
-        int high = arr.length - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (arr[mid].getMemberId() == targetId) {
+            if (members.get(mid).getMemberId() == memberId) {
                 return mid;
-            } else if (arr[mid].getMemberId() < targetId) {
+            } else if (members.get(mid).getMemberId() < memberId) {
                 low = mid + 1;
-            } else {
+            } else
+                 {
                 high = mid - 1;
             }
         }
         return -1;
+    }
+
+    public void addContribution(int memberId, double amount) {
+        int index = binarySearchById(memberId);
+        if (index != -1) {
+            Member m = members.get(index);
+            m.addContribution(amount);
+            contributions.add(new Contribution(m, amount));
+            System.out.println("Contribution recorded for: " + m.getName());
+        } else {
+            System.out.println("Member not found with ID: " + memberId);
+        }
     }
 
     public void searchMember(int memberId) {
@@ -71,20 +87,8 @@ public class MotsheloService implements Reportable {
         if (index != -1) {
             members.get(index).displayInfo();
         } else {
-            System.out.println("Member not found.");
+            System.out.println("Member not found with ID: " + memberId);
         }
-    }
-
-    public void addContribution(int memberId, double amount) {
-        for (Member m : members) {
-            if (m.getMemberId() == memberId) {
-                m.addContribution(amount);
-                contributions.add(new Contribution(m, amount));
-                System.out.println("Contribution recorded.");
-                return;
-            }
-        }
-        System.out.println("Member not found.");
     }
 
     public double getTotalContributions() {
@@ -95,18 +99,15 @@ public class MotsheloService implements Reportable {
         return total;
     }
 
+    
     @Override
     public void generateReport() {
         double totalPool = 0;
         System.out.println("\n===== MOTSHELO REPORT =====");
         for (Member m : members) {
-            System.out.println("ID: " + m.getMemberId());
-            System.out.println("Name: " + m.getName());
-            System.out.println("Phone: " + m.getPhoneNumber());
-            System.out.println("Total Contributed: " + m.getTotalContribution());
-            System.out.println("-------------------------------");
+            m.displayInfo();
             totalPool += m.getTotalContribution();
         }
-        System.out.println("TOTAL POOL: P" + totalPool);
+        System.out.println("TOTAL POOL: " + totalPool);
     }
-}
+}     
