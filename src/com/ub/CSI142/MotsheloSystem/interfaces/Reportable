@@ -1,6 +1,5 @@
-package com.ub.csi142.interfaces;
- 
- public interface Reportable{
-    void generateReport();
- 
+package com.ub.CSI142.MotsheloSystem.interfaces;
 
+public interface Reportable {
+    void generateReport();
+}
