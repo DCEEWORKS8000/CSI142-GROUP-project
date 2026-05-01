@@ -1,4 +1,4 @@
-package src.com.ub.csi142.MotsheloSystem.model;
+package src.com.ub.CSI142.MotsheloSystem.model;
 import java.util.ArrayList;
 import java.util.List;
 
